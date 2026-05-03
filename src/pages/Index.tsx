@@ -189,7 +189,7 @@ export default function Index() {
               для жизни
             </h2>
             <p className="font-body text-muted-foreground leading-relaxed mb-6">
-              «Свирель» — студия мебели на заказ, основанная в 2016 году. Мы специализируемся на создании мебели под заказ для жилых и коммерческих интерьеров. Каждый проект начинается с детального знакомства с вашим пространством и образом жизни.
+              «Свирель» — студия мебели на заказ, основанная в 2012 году. Мы специализируемся на создании мебели под заказ для жилых и коммерческих интерьеров. Каждый проект начинается с детального знакомства с вашим пространством и образом жизни.
             </p>
             <p className="font-body text-muted-foreground leading-relaxed mb-10">
               Наш подход — баланс между эстетикой и функциональностью. Мы работаем с натуральными материалами: массивом дерева, натуральными тканями, металлом ручной ковки.
@@ -214,7 +214,7 @@ export default function Index() {
             <img src={IMAGES.kitchen} alt="О студии" className="w-full object-cover"
               style={{ height: "520px", filter: "brightness(0.85)" }} />
             <div className="absolute -bottom-6 -left-6 bg-card border border-border p-6 hidden md:block">
-              <div className="font-display text-3xl text-gradient">2016</div>
+              <div className="font-display text-3xl text-gradient">2012</div>
               <div className="font-body text-xs text-muted-foreground tracking-wider uppercase mt-1">Год основания</div>
             </div>
             <div className="absolute top-6 -right-4 w-1 h-24 bg-primary/60" />
