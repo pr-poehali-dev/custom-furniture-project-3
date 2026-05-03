@@ -1,0 +1,13 @@
+{
+  "tests": [
+    {
+      "name": "Upload without auth",
+      "method": "POST",
+      "path": "/",
+      "body": {"file": "dGVzdA=="},
+      "expectedStatus": 401,
+      "expectedBody": {"error": "Unauthorized"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
