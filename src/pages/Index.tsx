@@ -89,7 +89,7 @@ export default function Index() {
         style={{ background: "linear-gradient(to bottom, hsl(20,10%,6%) 0%, transparent 100%)" }}>
         <button onClick={() => scrollTo("home")}
           className="font-display text-2xl tracking-widest text-foreground hover:text-primary transition-colors">
-          С<span className="text-primary">неля</span>
+          Свирель<span className="text-primary">.</span>
         </button>
 
         <div className="hidden md:flex items-center gap-8">
@@ -131,7 +131,7 @@ export default function Index() {
         <div className="relative z-10 px-6 md:px-16 max-w-6xl">
           <p className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-6 animate-slide-right opacity-0"
             style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-            Студия авторской мебели
+            Мебель на заказ
           </p>
           <h1 className="font-display text-7xl md:text-[9rem] leading-[0.9] tracking-tight mb-8 animate-fade-up opacity-0"
             style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
@@ -189,7 +189,7 @@ export default function Index() {
               для жизни
             </h2>
             <p className="font-body text-muted-foreground leading-relaxed mb-6">
-              «С неля» — студия авторской мебели, основанная в 2016 году. Мы специализируемся на создании мебели под заказ для жилых и коммерческих интерьеров. Каждый проект начинается с детального знакомства с вашим пространством и образом жизни.
+              «Свирель» — студия мебели на заказ, основанная в 2016 году. Мы специализируемся на создании мебели под заказ для жилых и коммерческих интерьеров. Каждый проект начинается с детального знакомства с вашим пространством и образом жизни.
             </p>
             <p className="font-body text-muted-foreground leading-relaxed mb-10">
               Наш подход — баланс между эстетикой и функциональностью. Мы работаем с натуральными материалами: массивом дерева, натуральными тканями, металлом ручной ковки.
@@ -343,10 +343,10 @@ export default function Index() {
       <footer className="border-t border-border py-8 px-6 md:px-16">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="font-display text-xl tracking-widest">
-            С<span className="text-primary">неля</span>
+            Свирель<span className="text-primary">.</span>
           </div>
           <p className="font-body text-xs text-muted-foreground tracking-wider">
-            © 2024 Студия авторской мебели «С неля»
+            © 2024 Мебель на заказ «Свирель»
           </p>
           <div className="flex gap-6">
             {["VK", "Instagram", "Telegram"].map((s) => (
