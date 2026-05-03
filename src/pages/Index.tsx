@@ -346,7 +346,7 @@ export default function Index() {
             Свирель<span className="text-primary">.</span>
           </div>
           <p className="font-body text-xs text-muted-foreground tracking-wider">
-            © 2024 Мебель на заказ «Свирель»
+            © 2012 Мебель на заказ «Свирель»
           </p>
           <div className="flex gap-6">
             {["VK", "Instagram", "Telegram"].map((s) => (
