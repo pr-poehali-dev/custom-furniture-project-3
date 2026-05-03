@@ -3,16 +3,17 @@
     {
       "name": "Login with wrong credentials",
       "method": "POST",
-      "path": "/login",
-      "body": {"email": "wrong@mail.ru", "password": "wrongpass"},
+      "path": "/",
+      "body": {"action": "login", "email": "wrong@mail.ru", "password": "wrongpass"},
       "expectedStatus": 401,
       "expectedBody": {"error": "Неверный логин или пароль"},
       "bodyMatcher": "partial"
     },
     {
       "name": "Verify without token",
-      "method": "GET",
-      "path": "/verify",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "verify", "token": ""},
       "expectedStatus": 401,
       "expectedBody": {"error": "Unauthorized"},
       "bodyMatcher": "partial"

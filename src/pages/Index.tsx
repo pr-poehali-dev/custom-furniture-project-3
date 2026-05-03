@@ -1,26 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
-const IMAGES = {
-  living: "https://cdn.poehali.dev/projects/c8251e23-dc0a-4a78-bd81-39b33391a768/files/cbf47af7-4416-43fd-b40e-9ff61968040c.jpg",
-  kitchen: "https://cdn.poehali.dev/projects/c8251e23-dc0a-4a78-bd81-39b33391a768/files/4888529c-52ca-4d6f-84c6-962501d3f2c1.jpg",
-  office: "https://cdn.poehali.dev/projects/c8251e23-dc0a-4a78-bd81-39b33391a768/files/9d095bb8-def4-4fbd-b6a4-cbe36f9fef0a.jpg",
-  bedroom: "https://cdn.poehali.dev/projects/c8251e23-dc0a-4a78-bd81-39b33391a768/files/133153b8-ed24-4243-9589-e9b60defdc85.jpg",
-  dining: "https://cdn.poehali.dev/projects/c8251e23-dc0a-4a78-bd81-39b33391a768/files/bcb31839-9761-43ed-815e-66e4fd7253a2.jpg",
-  dressing: "https://cdn.poehali.dev/projects/c8251e23-dc0a-4a78-bd81-39b33391a768/files/80731633-c04b-4716-82a4-eacb66bd18cf.jpg",
-};
+const PROJECTS_URL = "https://functions.poehali.dev/056cb137-9ffd-410b-aae3-2b93f0354a1f";
+const HERO_IMG = "https://cdn.poehali.dev/projects/c8251e23-dc0a-4a78-bd81-39b33391a768/files/cbf47af7-4416-43fd-b40e-9ff61968040c.jpg";
+const ABOUT_IMG = "https://cdn.poehali.dev/projects/c8251e23-dc0a-4a78-bd81-39b33391a768/files/4888529c-52ca-4d6f-84c6-962501d3f2c1.jpg";
 
-const PROJECTS = [
-  { id: 1, title: "Гостиная «Архитектор»", style: "минимализм", type: "гостиная", img: IMAGES.living, year: "2024" },
-  { id: 2, title: "Кухня «Noir»", style: "лофт", type: "кухня", img: IMAGES.kitchen, year: "2024" },
-  { id: 3, title: "Кабинет «Атлас»", style: "скандинавский", type: "кабинет", img: IMAGES.office, year: "2023" },
-  { id: 4, title: "Спальня «Изумруд»", style: "арт-деко", type: "спальня", img: IMAGES.bedroom, year: "2024" },
-  { id: 5, title: "Столовая «Бруклин»", style: "лофт", type: "столовая", img: IMAGES.dining, year: "2023" },
-  { id: 6, title: "Гардероб «Шампань»", style: "арт-деко", type: "гардероб", img: IMAGES.dressing, year: "2024" },
-];
+interface Project { id: number; title: string; style: string; type: string; year: string; img: string; }
 
-const STYLE_FILTERS = ["все", "минимализм", "лофт", "скандинавский", "арт-деко"];
-const TYPE_FILTERS = ["все", "гостиная", "кухня", "кабинет", "спальня", "столовая", "гардероб"];
+const STYLE_FILTERS = ["все", "минимализм", "лофт", "скандинавский", "арт-деко", "классика", "модерн"];
+const TYPE_FILTERS = ["все", "гостиная", "кухня", "кабинет", "спальня", "столовая", "гардероб", "прихожая", "ванная"];
 const SECTIONS = ["главная", "о студии", "портфолио", "контакты"];
 
 function useInView(threshold = 0.15) {
@@ -44,13 +32,18 @@ export default function Index() {
   const [styleFilter, setStyleFilter] = useState("все");
   const [typeFilter, setTypeFilter] = useState("все");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [lightbox, setLightbox] = useState<null | typeof PROJECTS[0]>(null);
+  const [lightbox, setLightbox] = useState<null | Project>(null);
+  const [projects, setProjects] = useState<Project[]>([]);
 
   const aboutAnim = useInView();
   const portfolioAnim = useInView();
   const contactAnim = useInView();
 
-  const filtered = PROJECTS.filter((p) => {
+  useEffect(() => {
+    fetch(PROJECTS_URL).then(r => r.json()).then(setProjects).catch(() => {});
+  }, []);
+
+  const filtered = projects.filter((p) => {
     const styleOk = styleFilter === "все" || p.style === styleFilter;
     const typeOk = typeFilter === "все" || p.type === typeFilter;
     return styleOk && typeOk;
@@ -123,7 +116,7 @@ export default function Index() {
       {/* HERO */}
       <section id="home" className="relative min-h-screen flex items-end pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={IMAGES.living} alt="hero" className="w-full h-full object-cover opacity-30" />
+          <img src={HERO_IMG} alt="hero" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, hsl(20,10%,6%) 30%, transparent 70%)" }} />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(20,10%,6%) 0%, transparent 60%)" }} />
         </div>
@@ -211,7 +204,7 @@ export default function Index() {
           </div>
 
           <div className="relative">
-            <img src={IMAGES.kitchen} alt="О студии" className="w-full object-cover"
+            <img src={ABOUT_IMG} alt="О студии" className="w-full object-cover"
               style={{ height: "520px", filter: "brightness(0.85)" }} />
             <div className="absolute -bottom-6 -left-6 bg-card border border-border p-6 hidden md:block">
               <div className="font-display text-3xl text-gradient">2012</div>
