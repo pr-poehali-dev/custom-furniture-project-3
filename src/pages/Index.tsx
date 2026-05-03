@@ -164,7 +164,7 @@ export default function Index() {
       <div className="border-y border-border py-8 px-6 md:px-16">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { num: "8+", label: "лет в деле" },
+            { num: "14+", label: "лет в деле" },
             { num: "240+", label: "реализованных проектов" },
             { num: "12", label: "городов присутствия" },
             { num: "100%", label: "авторское производство" },
